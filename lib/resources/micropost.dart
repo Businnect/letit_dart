@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../letit_dart.dart';
-import '../schemas/job.dart';
-import '../schemas/common.dart';
+import '../schemas/schemas.dart';
 
 class MicropostResource {
   MicropostResource(this._client);
@@ -12,7 +11,7 @@ class MicropostResource {
   Future<CreatedWithPublicIdAndLink> create({
     required String body,
     String? title,
-    String postType = 'text',
+    PostType postType = PostType.text,
     bool allowComments = true,
     bool isDraft = false,
     FilePayload? file,
@@ -21,7 +20,7 @@ class MicropostResource {
     final request = http.MultipartRequest('POST', uri);
 
     request.fields['body'] = body;
-    request.fields['post_type'] = postType;
+    request.fields['post_type'] = postType.name;
     request.fields['allow_comments'] = allowComments.toString();
     request.fields['is_draft'] = isDraft.toString();
 

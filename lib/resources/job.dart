@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../letit_dart.dart';
-import '../schemas/job.dart';
+import '../schemas/schemas.dart';
 
 class JobResource {
   JobResource(this._client);
@@ -45,5 +45,14 @@ class JobResource {
 
     final response = await _client.send(request);
     return UserJobCreatedByUser.fromJson(jsonDecode(response.body));
+  }
+
+  Future<void> delete(String slug) async {
+    final uri = Uri.parse('${_client.baseURL}/api/v1/client/job');
+    final request = http.Request('DELETE', uri);
+    request.headers['Content-Type'] = 'application/json';
+    request.body = jsonEncode({'slug': slug});
+
+    await _client.send(request);
   }
 }

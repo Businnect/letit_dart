@@ -1,11 +1,9 @@
-import 'dart:typed_data';
-
 enum JobLocation {
   remote,
   onsite,
   hybrid;
 
-  String get jsonValue => name.toUpperCase();
+  String get value => name.toUpperCase();
 }
 
 enum JobType {
@@ -15,7 +13,7 @@ enum JobType {
   freelance,
   internship;
 
-  String get jsonValue => name.toUpperCase();
+  String get value => name.toUpperCase();
 }
 
 enum JobCategory {
@@ -30,7 +28,10 @@ enum JobCategory {
   humanResource,
   others;
 
-  String get jsonValue => name.toUpperCase();
+  String get value {
+    if (this == JobCategory.others) return 'ELSE';
+    return name.toUpperCase();
+  }
 }
 
 enum JobExperienceLevel {
@@ -40,7 +41,7 @@ enum JobExperienceLevel {
   senior,
   noExperienceRequired;
 
-  String get jsonValue => name.toUpperCase();
+  String get value => name.toUpperCase();
 }
 
 enum JobStatus {
@@ -51,19 +52,7 @@ enum JobStatus {
   review,
   closed;
 
-  String get jsonValue => name.toUpperCase();
-}
-
-class FilePayload {
-  FilePayload({
-    required this.filename,
-    required this.bytes,
-    this.mimeType,
-  });
-
-  final String filename;
-  final Uint8List bytes;
-  final String? mimeType;
+  String get value => name.toUpperCase();
 }
 
 class UserJobCreatedByUser {
