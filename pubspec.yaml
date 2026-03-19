@@ -1,0 +1,15 @@
+name: letit_dart
+description: A professional Dart client for the LetIt API, featuring high-performance support for Microposts and Job management.
+version: 0.0.0
+homepage: https://letit.com
+repository: https://github.com/Businnect/letit_dart
+
+environment:
+  sdk: ">=2.17.0 <4.0.0"
+
+dependencies:
+  http: ^1.6.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0
