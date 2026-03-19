@@ -17,7 +17,7 @@ class JobResource {
     required String jobHowToApply,
     bool jobPayInCryptocurrency = false,
     FilePayload? companyLogo,
-    String jobLocation = 'remote',
+    JobLocation jobLocation = JobLocation.remote,
   }) async {
     final uri = Uri.parse('${_client.baseURL}/api/v1/client/job');
     final request = http.MultipartRequest('POST', uri);
@@ -30,7 +30,7 @@ class JobResource {
       'job_description': jobDescription,
       'job_how_to_apply': jobHowToApply,
       'job_pay_in_cryptocurrency': jobPayInCryptocurrency.toString(),
-      'job_location': jobLocation,
+      'job_location': jobLocation.value,
     });
 
     if (companyLogo != null) {

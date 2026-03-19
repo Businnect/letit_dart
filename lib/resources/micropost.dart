@@ -20,7 +20,7 @@ class MicropostResource {
     final request = http.MultipartRequest('POST', uri);
 
     request.fields['body'] = body;
-    request.fields['post_type'] = postType.name;
+    request.fields['post_type'] = postType.value;
     request.fields['allow_comments'] = allowComments.toString();
     request.fields['is_draft'] = isDraft.toString();
 
