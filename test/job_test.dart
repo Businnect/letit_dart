@@ -1,9 +1,8 @@
 import 'dart:io';
-import 'package:letit_dart/letit_dart.dart';
 import 'package:test/test.dart';
 
+import 'package:letit_dart/letit_dart.dart';
 import 'package:letit_dart/schemas/schemas.dart';
-
 
 void main() {
   final token = Platform.environment['LETIT_API_TOKEN'];
@@ -19,13 +18,13 @@ void main() {
       baseURL: 'https://api.letit.com',
     );
 
-    final logoFile = File('test/assets/logo.png');
+    final logoFile = File('.github/logo.png');
     if (!await logoFile.exists()) {
-      fail('Test logo not found at test/assets/logo.png');
+      fail('Test logo not found at ${logoFile.path}');
     }
 
     final filePayload = FilePayload(
-      filename: 'logo.png',
+      filename: logoFile.uri.pathSegments.last,
       bytes: await logoFile.readAsBytes(),
       mimeType: 'image/png',
     );
@@ -43,8 +42,7 @@ void main() {
     expect(response.slug, isNotEmpty);
 
     try {
-
-      await client.job.delete(response.slug); 
+      await client.job.delete(response.slug);
       print('Successfully cleaned up job: ${response.slug}');
     } catch (e) {
       print('Warning: Failed to cleanup job ${response.slug}: $e');

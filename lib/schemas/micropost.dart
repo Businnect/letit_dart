@@ -1,1 +1,6 @@
-enum PostType { text, media }
+enum PostType {
+  text,
+  media;
+
+  String get value => name.toUpperCase();
+}

@@ -60,6 +60,5 @@ linter:
     prefer_single_quotes: true
     public_member_api_docs: false
     require_trailing_commas: true
-    #    always_use_package_imports: true
     sort_constructors_first: true
     sort_unnamed_constructors_first: true
