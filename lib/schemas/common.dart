@@ -1,5 +1,4 @@
 class CreatedWithPublicIdAndLink {
-
   CreatedWithPublicIdAndLink({
     required this.publicId,
     required this.link,
