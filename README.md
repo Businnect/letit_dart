@@ -17,7 +17,7 @@ For detailed information on the underlying REST API, endpoints, and authenticati
 ## Installation
 
 ```bash
-dart pub add letit_dart
+dart pub add letit
 ```
 
 ## Quick Start
@@ -27,7 +27,7 @@ dart pub add letit_dart
 The client can be initialized with an explicit API key and base URL.
 
 ```dart
-import 'package:letit_dart/letit_dart.dart';
+import 'package:letit/letit.dart';
 
 void main() {
   // Pass the API key and Base URL
@@ -45,8 +45,8 @@ The SDK handles multipart form construction and file uploads automatically.
 ```dart
 import 'dart:io';
 
-import 'package:letit_dart/letit_dart.dart';
-import 'package:letit_dart/schemas/schemas.dart';
+import 'package:letit/letit.dart';
+import 'package:letit/schemas/schemas.dart';
 
 Future<void> main() async {
   final client = LetItClient(
@@ -81,8 +81,8 @@ Future<void> main() async {
 Easily create posts with optional titles and bodies.
 
 ```dart
-import 'package:letit_dart/letit_dart.dart';
-import 'package:letit_dart/schemas/schemas.dart';
+import 'package:letit/letit.dart';
+import 'package:letit/schemas/schemas.dart';
 
 Future<void> main() async {
   final client = LetItClient(

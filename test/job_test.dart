@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:test/test.dart';
 
-import 'package:letit_dart/letit_dart.dart';
-import 'package:letit_dart/schemas/schemas.dart';
+import 'package:letit/letit.dart';
+import 'package:letit/schemas/schemas.dart';
 
 void main() {
   final token = Platform.environment['LETIT_API_TOKEN'];

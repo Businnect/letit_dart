@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../letit_dart.dart';
+import '../letit.dart';
 import '../schemas/schemas.dart';
 
 class JobResource {

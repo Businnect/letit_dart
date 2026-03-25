@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:letit_dart/letit_dart.dart';
+import 'package:letit/letit.dart';
 
 void main() {
   group('LetItClient Errors', () {
