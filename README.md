@@ -120,3 +120,51 @@ dart test
 # In Bash
 LETIT_API_TOKEN="your-token" dart test
 ```
+
+## Publishing
+ 
+This package is published to [pub.dev](https://pub.dev/packages/letit) via GitHub Actions.
+
+You will have to have an account first equalt to what you use for your git config file.
+
+```bash
+[user]
+        name = yours
+        email = yours
+```
+ 
+### How it works
+ 
+Publishing is triggered automatically when a new GitHub Release is created.
+ 
+```
+1. Update CHANGELOG.md with the new version and changes
+2. Bump the version in pubspec.yaml
+3. Commit and push changes
+4. Create a new GitHub Release with the version tag for example v0.1.0 at https://github.com/Businnect/letit_dart/releases/new
+   → GitHub Actions runs automatically
+   → Verifies formatting, runs analysis and tests, validates package
+   → Publishes to pub.dev
+```
+ 
+### Manual publishing
+ 
+If you need to publish manually from your local machine:
+ 
+```bash
+# Dry run first to check for issues
+dart pub publish --dry-run
+ 
+# Publish in production 
+dart pub publish
+```
+ 
+### Versioning
+ 
+This package follows [semantic versioning](https://semver.org/):
+ 
+- `MAJOR` — breaking changes
+- `MINOR` — new features, backwards compatible
+- `PATCH` — bug fixes, backwards compatible
+ 
+Always update `CHANGELOG.md` and `pubspec.yaml` before creating a release.
