@@ -34,10 +34,10 @@ class BlogResource {
       if (limit != null) 'limit': limit.toString(),
     };
 
-    final baseUri = Uri.parse('${_client.baseURL}/api/v1/client/admin/blog/list');
-    final uri = query.isEmpty
-        ? baseUri
-        : baseUri.replace(queryParameters: query);
+    final baseUri =
+        Uri.parse('${_client.baseURL}/api/v1/client/admin/blog/list');
+    final uri =
+        query.isEmpty ? baseUri : baseUri.replace(queryParameters: query);
 
     final request = http.Request('GET', uri);
     final response = await _client.send(request);
