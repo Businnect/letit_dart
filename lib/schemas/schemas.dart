@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+export 'blog.dart';
 export 'job.dart';
 export 'common.dart';
 export 'micropost.dart';

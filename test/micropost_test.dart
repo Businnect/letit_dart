@@ -26,6 +26,11 @@ void main() {
 
     expect(response.publicId, isNotEmpty);
 
+    final voteResponse = await client.micropost.vote(
+      publicId: response.publicId,
+    );
+    expect(voteResponse.userVoted, isTrue);
+
     try {
       await client.micropost.delete(response.publicId);
       print('Successfully cleaned up micropost: ${response.publicId}');

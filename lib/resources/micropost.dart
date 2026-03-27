@@ -8,6 +8,18 @@ class MicropostResource {
   MicropostResource(this._client);
   final LetItClient _client;
 
+  Future<MicropostVoteResponse> vote({required String publicId}) async {
+    final uri = Uri.parse('${_client.baseURL}/api/v1/client/micropost/vote');
+    final request = http.Request('PATCH', uri);
+    request.headers['Content-Type'] = 'application/json';
+    request.body = jsonEncode({'public_id': publicId});
+
+    final response = await _client.send(request);
+    return MicropostVoteResponse.fromJson(
+      jsonDecode(response.body),
+    );
+  }
+
   Future<CreatedWithPublicIdAndLink> create({
     required String body,
     String? title,

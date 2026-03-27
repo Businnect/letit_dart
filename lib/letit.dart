@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'resources/blog.dart';
 import 'resources/job.dart';
 import 'resources/micropost.dart';
 
@@ -13,6 +14,7 @@ class LetItClient {
             ? baseURL.substring(0, baseURL.length - 1)
             : baseURL,
         httpClient = httpClient ?? http.Client() {
+    blog = BlogResource(this);
     job = JobResource(this);
     micropost = MicropostResource(this);
   }
@@ -20,6 +22,7 @@ class LetItClient {
   final String apiKey;
   final http.Client httpClient;
 
+  late final BlogResource blog;
   late final JobResource job;
   late final MicropostResource micropost;
 

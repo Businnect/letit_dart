@@ -100,6 +100,47 @@ Future<void> main() async {
 }
 ```
 
+### Vote on a Micropost
+
+Toggle vote status for a micropost by its public ID.
+
+```dart
+import 'package:letit/letit.dart';
+
+Future<void> main() async {
+  final client = LetItClient(
+    apiKey: 'your-api-token',
+    baseURL: 'https://api.letit.com',
+  );
+
+  final vote = await client.micropost.vote(publicId: 'public-id-here');
+  print('User voted: ${vote.userVoted}');
+}
+```
+
+### Get Public Admin Blog by Slug
+
+Fetch a public admin article by its unique slug.
+
+```dart
+import 'package:letit/letit.dart';
+
+Future<void> main() async {
+  final client = LetItClient(
+    apiKey: 'your-api-token',
+    baseURL: 'https://api.letit.com',
+  );
+
+  final blog = await client.blog.getBySlug(slug: 'my-blog-slug');
+  if (blog == null) {
+    print('Blog not found');
+    return;
+  }
+
+  print('Title: ${blog.title}');
+}
+```
+
 ## Environment Variables
 
 The SDK can utilize the following environment variable for testing or default configuration:
